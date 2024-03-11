@@ -4,9 +4,26 @@
 <h1>Registration</h1>
 <form method="post">
     {% csrf_token %}
-    {{ form }}
+    <div>
+        <label>felhasználónév</label>
+        {{ form.username }}
+    </div>
+    <div> 
+        <label>email</label>
+        {{ form.email }}
+    </div>
+    <div> 
+        <label>jelszó</label>
+        {{ form.password1 }}
+    </div>
+    <div>
+        <label>jelszó megerősítés</label>
+        {{ form.password2 }}
+    </div>
     <input type='submit' value='Register'>
 </form>
 
+<a href="{% url 'login' %}">Eszembe jutott a jelszó, bejelentkezek!</a>
 
-{% endblock  %}
+
+{% endblock %}

@@ -5,10 +5,20 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ form }}
+
+    <div>
+        <label>felhasználónév</label>
+        {{ form.username }}
+    </div>
+
+    <div>
+        <label>jelszó</label>
+        {{ form.password }}
+    </div>
+
     <input type='submit' value='Login'>
 </form>
 
-<a href="{% url 'register' %}">Registration</a>
+<a href="{% url 'register' %}">Még nincs felhasználóm, regisztrálok!</a>
 
 {% endblock  %}
