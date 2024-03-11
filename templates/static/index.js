@@ -7,7 +7,26 @@ fetch('/api/refuels/')
 .then(data => {
     data.forEach(refuel => {
         element = document.createElement('div')
-        element.innerText = refuel.distance_km
         refuelsEl.appendChild(element)
+        rollIt(element, refuel.distance_km)
     });
 })
+
+function rollIt(element, distance){
+    element.innerText = 0
+    let intervalId = setInterval(()=>{
+        let num = element.innerText*1
+
+        if(num == distance){
+            clearInterval(intervalId)
+        }
+        else if(num + 1000 < distance){
+            element.innerText = num + 1000
+        }else if(num + 100 < distance){
+            element.innerText = num + 100}
+        else{
+            element.innerText = num + 1
+        }
+
+    }, 1)
+}
