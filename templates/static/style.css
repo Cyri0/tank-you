@@ -31,3 +31,43 @@ form{
     flex-direction: column;
     gap: 15px;
 }
+
+.consumption h1,
+.consumption{
+    text-align: center;
+    margin: 0;
+}
+
+#refuels{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    #refuels{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+
+    #refuels div:first-child{
+        transform: scale(1.2);
+    }
+  }
+
+#refuels>div{
+    background-color: #FAFAFA;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#refuels>div>h3{
+    color: green;
+}
+
+#refuels>div>h4:last-child{
+    color: gray;
+}

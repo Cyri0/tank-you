@@ -3,6 +3,27 @@
 {% block content %}
 <h1>Hello {{ user }}</h1>
 
+<div class="consumption">
+    <h1 id="consumption"></h1>
+    <h5>l / 100 km</h5>
+</div>
+
+<form action="{% url 'new-refuel' %}" method="post">
+    {% csrf_token %}
+
+    <label for="km">óraállás</label>
+    <input type="number" name="distance_km" id="km">
+
+    <label for="petrol">tankolt mennyiség</label>
+    <input type="number" name="petrol_amount_litre" id="petrol">
+    
+    <label for="date">tankolás időpontja</label>
+    <input type="datetime-local" name="refuel_date" id="date">
+
+    <input type="submit" value="Beküld">
+</form>
+
+
 <div id="refuels"></div>
 
 <a href="{% url 'logout' %}">Kijelentkezés</a>
